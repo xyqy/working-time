@@ -40,7 +40,7 @@ def myDate(date1, date2):
 class Core:
     BASE_URL = "https://kq-oa.percent.cn/api/insurance/query_real_time/"
 
-    def __init__(self, cookie):
+    def __init__(self, cookie, hours):
         self.headers = {
             "Accept": "application/json",
             "Accept-Encoding": "gzip, deflate, br",
@@ -53,6 +53,7 @@ class Core:
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                           "Chrome/87.0.4280.66 Safari/537.36 "
         }
+        self.hours = hours
 
     def get_date(self, date):
         data = {
@@ -85,6 +86,8 @@ class Core:
 
         # 共多少秒
         seconds = 0
+        if self.hours != '':
+            seconds = (int(self.hours) * 3600)
         # 这个月工作共多少天
         days = 0
         for i in range((end - begin).days):

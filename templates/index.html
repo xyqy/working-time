@@ -7,26 +7,37 @@
     <link href="../static/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-<h4 style="padding-left: 2%;padding-top: 2%">
-    说明：当且仅当当月未请假时，计算工时有效，目前功能尚少，更多功能待后续开发优化。
+<h4 style="padding-left: 5%;padding-top: 2%">
+    <p>说明：当且仅当当月未请假时，计算工时有效，目前功能尚少，更多功能待后续开发优化。</p>
+    <p>请假时长：只对请假的半天进行输入，如请假半天输入4，请假1天则不用输入，请假1.5天，输入8。</p>
 </h4>
 <form class="" action="/" method="get" style="padding-top: 2%">
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-1 control-label"
+        <label for="inputEmail3" class="col-sm-2 control-label"
                style="text-align: -webkit-right;margin-top: 0.5%;padding-left: 3.5%;font-size: large">cookie：</label>
         <div class="col-md-5">
             <input type="text" name="cookie" autocomplete="off" class="form-control" id="inputEmail3"
                    placeholder="请输入cookie.." required>
         </div>
+        <br>
+        <br>
+        <br>
+        <label for="input" class="col-sm-2 control-label"
+               style="text-align: -webkit-right;margin-top: 0.5%;padding-left: 3.5%;font-size: large">请假时长：</label>
+        <div class="form-group col-md-5">
+            <input type="text" name="hours" autocomplete="off" class="form-control" id="input"
+                   placeholder="如：4或8" value="" onkeyup="this.value=this.value.replace(/\D/g,'')">（注：只需输入半天的请假即可，全天不用填写）
+        </div>
     </div>
     <br><br>
     <div class="form-group">
-        <div class="col-sm-offset-1 col-md-10">
+        <div class="col-sm-offset-2 col-md-10">
             <button type="submit" class="btn btn-default">查询</button>
         </div>
     </div>
 </form>
-<h3 style="padding-left: 2%;padding-top: 2%">
+<br>
+<h3 style="padding-left: 5%;padding-top: 2%">
     {% if num != -1 %}
         你的当月工时是：{{ num }}
     {% else %}
@@ -34,7 +45,7 @@
     {% endif %}
 
 </h3>
-<h4 style="padding-left: 2%;padding-top: 2%">
+<h4 style="padding-left: 5%;padding-top: 2%">
     仅供参考，切勿用作其他用途<br><br>
     项目地址：<a href="https://github.com/xyqy/working-time" target="_blank"> 点我直达 </a>
 </h4>
